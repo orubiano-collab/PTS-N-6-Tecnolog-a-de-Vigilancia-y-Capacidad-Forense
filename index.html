@@ -84,6 +84,15 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);min-height:
 @media(max-width:600px){.geo-grid{grid-template-columns:1fr}}
 .geo-grid .fld{margin-bottom:8px}
 
+/* Contenedor para barrios (oculto por defecto) */
+.terr-container{display:none}
+.terr-container.show{display:block}
+
+/* Botón de geolocalización */
+.btn-geo{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border:1px solid var(--cobalt);border-radius:var(--r);background:var(--stl-bg);color:var(--cobalt);font-weight:600;font-size:.8em;cursor:pointer;transition:.15s;margin-top:4px}
+.btn-geo:hover{background:var(--cobalt);color:#fff;border-color:var(--cobalt2)}
+.btn-geo:disabled{opacity:.6;cursor:wait}
+
 .op-row{background:var(--card2);border-radius:var(--r);padding:10px 14px;margin-bottom:8px;border-left:3px solid var(--cobalt);display:flex;gap:10px;align-items:baseline}
 .op-code{font-weight:700;font-size:.82em;color:var(--cobalt);min-width:60px;flex-shrink:0}
 .op-desc{font-size:.88em;color:var(--ink2)}
@@ -131,11 +140,11 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);min-height:
 <div class="topbar">
   <div class="tb-brand">
     <div style="background:#fff;border-radius:7px;padding:6px 14px;display:flex;align-items:center;box-shadow:0 1px 6px rgba(0,0,0,.12);">
-  <div style="display:flex;flex-direction:column;align-items:center;line-height:1.2;">
-    <span style="font-weight:800;font-size:1.2em;color:#002855;letter-spacing:.05em;">OSCC</span>
-    <span style="font-size:.55em;font-weight:600;color:#0057A8;letter-spacing:.03em;">Barranquilla 2026</span>
-  </div>
-</div>
+      <div style="display:flex;flex-direction:column;align-items:center;line-height:1.2;">
+        <span style="font-weight:800;font-size:1.2em;color:#002855;letter-spacing:.05em;">OSCC</span>
+        <span style="font-size:.55em;font-weight:600;color:#0057A8;letter-spacing:.03em;">Barranquilla 2026</span>
+      </div>
+    </div>
     <div style="width:1px;height:28px;background:rgba(0,40,85,.14);flex-shrink:0;"></div>
     <div class="tb-name">Formulario PTS · LE-6<span>Tecnología de Vigilancia y Capacidad Forense · Hurto de Vehículos</span></div>
   </div>
@@ -154,9 +163,8 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);min-height:
     <p>Verificar y expandir la infraestructura tecnológica de vigilancia (cámaras, LPR, C4), integrar protocolos de alerta temprana y dotar a la investigación de capacidad forense electrónica.</p>
     <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
       <a href="#pts14" class="pill pill-stl" style="text-decoration:none;cursor:pointer">PTS-14</a>
-<a href="#pts15" class="pill pill-stl" style="text-decoration:none;cursor:pointer">PTS-15</a>
-<a href="#pts16" class="pill pill-stl" style="text-decoration:none;cursor:pointer">PTS-16</a>
-
+      <a href="#pts15" class="pill pill-stl" style="text-decoration:none;cursor:pointer">PTS-15</a>
+      <a href="#pts16" class="pill pill-stl" style="text-decoration:none;cursor:pointer">PTS-16</a>
     </div>
   </div>
 </div>
@@ -169,274 +177,308 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);min-height:
 
   <div class="sec-title">LE-6 — Fichas de Acción Territorial (PTS-14, PTS-15, PTS-16)</div>
 
-  
-    <div class="pts-card" id="pts14">
-      <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
-        <span class="pts-code" style="color:#0057A8">PTS-14</span>
-        <div class="pts-title">Auditoría de capacidades tecnológicas (videovigilancia, LPR, C4)<small>PRY-14 · LE-6 · HC-5 · DOFA · INS-5</small></div>
+  <!-- PTS-14 -->
+  <div class="pts-card" id="pts14">
+    <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
+      <span class="pts-code" style="color:#0057A8">PTS-14</span>
+      <div class="pts-title">Auditoría de capacidades tecnológicas (videovigilancia, LPR, C4)<small>PRY-14 · LE-6 · HC-5 · DOFA · INS-5</small></div>
+    </div>
+    <div class="pts-body">
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
+        <div class="info-box ib-stl">Cobertura de cámaras y LPR no verificable pese a inversiones del PISCC.</div>
       </div>
-      <div class="pts-body">
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
-          <div class="info-box ib-stl">Cobertura de cámaras y LPR no verificable pese a inversiones del PISCC.</div>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
-          <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Levantar inventario y auditoría funcional; entregar plan de cobertura priorizado.</p>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
-          <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Georreferenciación de cada activo tecnológico; mapa verificado de cobertura.</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Localidad(es)</label><input type="text" placeholder="Ej: Norte-Centro Histórico, Suroccidente…"></div>
-            <div class="fld"><label class="lbl">Barrio(s) / Polígono(s)</label><input type="text" placeholder="Ej: Centro, Barrio Abajo, Boston…"></div>
-            <div class="fld"><label class="lbl">Latitud</label><input type="text" placeholder="Ej: 10.9685"></div>
-            <div class="fld"><label class="lbl">Longitud</label><input type="text" placeholder="Ej: -74.7813"></div>
-            <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
-            <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
-            <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
-            <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
+        <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Levantar inventario y auditoría funcional; entregar plan de cobertura priorizado.</p>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
+        <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Georreferenciación de cada activo tecnológico; mapa verificado de cobertura.</div>
+        <div class="geo-grid">
+          <div class="fld">
+            <label class="lbl">Localidad(es)</label>
+            <select class="localidad-select" data-target="territorio-pts14">
+              <option value="">Seleccione localidad...</option>
+              <option value="Distrital">Distrital (toda la ciudad)</option>
+            </select>
           </div>
+          <div class="fld terr-container" id="terr-container-pts14">
+            <label class="lbl">Barrio(s) / Polígono(s)</label>
+            <select class="territorio-select" id="territorio-pts14">
+              <option value="">Primero seleccione una localidad</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label class="lbl">Latitud</label>
+            <input type="text" class="lat-input" id="lat-pts14" placeholder="Ej: 10.9685">
+          </div>
+          <div class="fld">
+            <label class="lbl">Longitud</label>
+            <input type="text" class="lng-input" id="lng-pts14" placeholder="Ej: -74.7813">
+          </div>
+          <div class="fld" style="grid-column:1/2;">
+            <button type="button" class="btn-geo" data-lat="lat-pts14" data-lng="lng-pts14">📍 Obtener ubicación</button>
+          </div>
+          <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
+          <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
+          <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
+          <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
-          <div class="op-row" style="border-left-color:#0057A8">
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-14.1</span>
           <span class="op-desc">Inventario y auditoría funcional de cámaras, LPR, C4 y analítica</span>
         </div>
-<div class="op-row" style="border-left-color:#0057A8">
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-14.2</span>
           <span class="op-desc">Plan de cobertura priorizado por datos del delito</span>
         </div>
-
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Informe de auditoría aprobado (H2)</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Mapa verificado</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Plan de despliegue</div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="OSCC + TIC" readonly style="font-weight:600"></div>
+          <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="5 meses (2026-S2)" readonly style="font-size:.82em"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
-          <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Informe de auditoría aprobado (H2)</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Mapa verificado</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Plan de despliegue</div>
-
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="OSCC + TIC" readonly style="font-weight:600"></div>
-            <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="5 meses (2026-S2)" readonly style="font-size:.82em"></div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
+        <div class="fld">
+          <label class="lbl">Estado Actual</label>
+          <div class="status-row">
+            <div class="status-opt"><input type="radio" name="estado_pts14" id="e1_pts14"><label for="e1_pts14">⬜ No Iniciado</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts14" id="e2_pts14"><label for="e2_pts14">📐 En Diseño</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts14" id="e3_pts14"><label for="e3_pts14">▶️ En Ejecución</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts14" id="e4_pts14"><label for="e4_pts14">✅ Consolidado</label></div>
           </div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
-          <div class="fld">
-            <label class="lbl">Estado Actual</label>
-            <div class="status-row">
-              <div class="status-opt"><input type="radio" name="estado_pts14" id="e1_pts14"><label for="e1_pts14">⬜ No Iniciado</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts14" id="e2_pts14"><label for="e2_pts14">📐 En Diseño</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts14" id="e3_pts14"><label for="e3_pts14">▶️ En Ejecución</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts14" id="e4_pts14"><label for="e4_pts14">✅ Consolidado</label></div>
-            </div>
+        <div class="fld">
+          <label class="lbl">Semáforo</label>
+          <div class="sem-row">
+            <div class="sem-opt sem-verde"><input type="radio" name="sem_pts14" id="sv_pts14"><label for="sv_pts14" class="sv">🟢 Verde</label></div>
+            <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts14" id="sa_pts14"><label for="sa_pts14" class="sa">🟡 Amarillo</label></div>
+            <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts14" id="sr_pts14"><label for="sr_pts14" class="sr">🔴 Rojo</label></div>
           </div>
-          <div class="fld">
-            <label class="lbl">Semáforo</label>
-            <div class="sem-row">
-              <div class="sem-opt sem-verde"><input type="radio" name="sem_pts14" id="sv_pts14"><label for="sv_pts14" class="sv">🟢 Verde</label></div>
-              <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts14" id="sa_pts14"><label for="sa_pts14" class="sa">🟡 Amarillo</label></div>
-              <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts14" id="sr_pts14"><label for="sr_pts14" class="sr">🔴 Rojo</label></div>
-            </div>
-          </div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
-            <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
-          </div>
-          <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
         </div>
-
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
+          <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
+        </div>
+        <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
       </div>
     </div>
-    <div class="pts-card" id="pts15">
-      <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
-        <span class="pts-code" style="color:#0057A8">PTS-15</span>
-        <div class="pts-title">Despliegue priorizado de LPR y protocolo de alerta temprana<small>PRY-15 · LE-6 · Cap. IV diagnóstico</small></div>
+  </div>
+
+  <!-- PTS-15 -->
+  <div class="pts-card" id="pts15">
+    <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
+      <span class="pts-code" style="color:#0057A8">PTS-15</span>
+      <div class="pts-title">Despliegue priorizado de LPR y protocolo de alerta temprana<small>PRY-15 · LE-6 · Cap. IV diagnóstico</small></div>
+    </div>
+    <div class="pts-body">
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
+        <div class="info-box ib-stl">Único corredor confirmado empíricamente (Cordialidad–Galapa); necesidad de alerta temprana.</div>
       </div>
-      <div class="pts-body">
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
-          <div class="info-box ib-stl">Único corredor confirmado empíricamente (Cordialidad–Galapa); necesidad de alerta temprana.</div>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
-          <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Instalar puntos LPR priorizados e integrar protocolo de alerta temprana post-hurto.</p>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
-          <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Eje Cordialidad–Galapa; corredores intermunicipales priorizados.</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Localidad(es)</label><input type="text" placeholder="Ej: Norte-Centro Histórico, Suroccidente…"></div>
-            <div class="fld"><label class="lbl">Barrio(s) / Polígono(s)</label><input type="text" placeholder="Ej: Centro, Barrio Abajo, Boston…"></div>
-            <div class="fld"><label class="lbl">Latitud</label><input type="text" placeholder="Ej: 10.9685"></div>
-            <div class="fld"><label class="lbl">Longitud</label><input type="text" placeholder="Ej: -74.7813"></div>
-            <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
-            <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
-            <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
-            <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
+        <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Instalar puntos LPR priorizados e integrar protocolo de alerta temprana post-hurto.</p>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
+        <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Eje Cordialidad–Galapa; corredores intermunicipales priorizados.</div>
+        <div class="geo-grid">
+          <div class="fld">
+            <label class="lbl">Localidad(es)</label>
+            <select class="localidad-select" data-target="territorio-pts15">
+              <option value="">Seleccione localidad...</option>
+              <option value="Distrital">Distrital (toda la ciudad)</option>
+            </select>
           </div>
+          <div class="fld terr-container" id="terr-container-pts15">
+            <label class="lbl">Barrio(s) / Polígono(s)</label>
+            <select class="territorio-select" id="territorio-pts15">
+              <option value="">Primero seleccione una localidad</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label class="lbl">Latitud</label>
+            <input type="text" class="lat-input" id="lat-pts15" placeholder="Ej: 10.9685">
+          </div>
+          <div class="fld">
+            <label class="lbl">Longitud</label>
+            <input type="text" class="lng-input" id="lng-pts15" placeholder="Ej: -74.7813">
+          </div>
+          <div class="fld" style="grid-column:1/2;">
+            <button type="button" class="btn-geo" data-lat="lat-pts15" data-lng="lng-pts15">📍 Obtener ubicación</button>
+          </div>
+          <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
+          <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
+          <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
+          <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
-          <div class="op-row" style="border-left-color:#0057A8">
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-15.1</span>
           <span class="op-desc">Especificación técnica y despliegue escalonado de puntos LPR</span>
         </div>
-<div class="op-row" style="border-left-color:#0057A8">
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-15.2</span>
           <span class="op-desc">Protocolo de alerta temprana: denuncia → placa → alerta → interceptación</span>
         </div>
-
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>LPR priorizados: 100 % a 2028</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Tasa de recuperación: creciente</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Reporte–alerta ≤ 15 min</div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="OSCC + MEBAR–C4" readonly style="font-weight:600"></div>
+          <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="2027-S1 a 2028 (despliegue) · Operación a 2029" readonly style="font-size:.82em"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
-          <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>LPR priorizados: 100 % a 2028</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Tasa de recuperación: creciente</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Reporte–alerta ≤ 15 min</div>
-
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="OSCC + MEBAR–C4" readonly style="font-weight:600"></div>
-            <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="2027-S1 a 2028 (despliegue) · Operación a 2029" readonly style="font-size:.82em"></div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
+        <div class="fld">
+          <label class="lbl">Estado Actual</label>
+          <div class="status-row">
+            <div class="status-opt"><input type="radio" name="estado_pts15" id="e1_pts15"><label for="e1_pts15">⬜ No Iniciado</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts15" id="e2_pts15"><label for="e2_pts15">📐 En Diseño</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts15" id="e3_pts15"><label for="e3_pts15">▶️ En Ejecución</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts15" id="e4_pts15"><label for="e4_pts15">✅ Consolidado</label></div>
           </div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
-          <div class="fld">
-            <label class="lbl">Estado Actual</label>
-            <div class="status-row">
-              <div class="status-opt"><input type="radio" name="estado_pts15" id="e1_pts15"><label for="e1_pts15">⬜ No Iniciado</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts15" id="e2_pts15"><label for="e2_pts15">📐 En Diseño</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts15" id="e3_pts15"><label for="e3_pts15">▶️ En Ejecución</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts15" id="e4_pts15"><label for="e4_pts15">✅ Consolidado</label></div>
-            </div>
+        <div class="fld">
+          <label class="lbl">Semáforo</label>
+          <div class="sem-row">
+            <div class="sem-opt sem-verde"><input type="radio" name="sem_pts15" id="sv_pts15"><label for="sv_pts15" class="sv">🟢 Verde</label></div>
+            <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts15" id="sa_pts15"><label for="sa_pts15" class="sa">🟡 Amarillo</label></div>
+            <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts15" id="sr_pts15"><label for="sr_pts15" class="sr">🔴 Rojo</label></div>
           </div>
-          <div class="fld">
-            <label class="lbl">Semáforo</label>
-            <div class="sem-row">
-              <div class="sem-opt sem-verde"><input type="radio" name="sem_pts15" id="sv_pts15"><label for="sv_pts15" class="sv">🟢 Verde</label></div>
-              <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts15" id="sa_pts15"><label for="sa_pts15" class="sa">🟡 Amarillo</label></div>
-              <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts15" id="sr_pts15"><label for="sr_pts15" class="sr">🔴 Rojo</label></div>
-            </div>
-          </div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
-            <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
-          </div>
-          <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
         </div>
-
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
+          <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
+        </div>
+        <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
       </div>
     </div>
-    <div class="pts-card" id="pts16">
-      <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
-        <span class="pts-code" style="color:#0057A8">PTS-16</span>
-        <div class="pts-title">Capacidad forense frente a la vulneración electrónica vehicular<small>PRY-16 · LE-6 · R-4 · HP7</small></div>
+  </div>
+
+  <!-- PTS-16 -->
+  <div class="pts-card" id="pts16">
+    <div class="pts-header" style="background:linear-gradient(135deg,#0057A811,#0057A805)">
+      <span class="pts-code" style="color:#0057A8">PTS-16</span>
+      <div class="pts-title">Capacidad forense frente a la vulneración electrónica vehicular<small>PRY-16 · LE-6 · R-4 · HP7</small></div>
+    </div>
+    <div class="pts-body">
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
+        <div class="info-box ib-stl">Tecnificación del delito por delante de la capacidad probatoria institucional.</div>
       </div>
-      <div class="pts-body">
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Problema Territorial Identificado</div>
-          <div class="info-box ib-stl">Tecnificación del delito por delante de la capacidad probatoria institucional.</div>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
-          <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Dotar de capacidad probatoria frente a llaves maestras, clonación e inhibidores.</p>
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
-          <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Georreferenciación de dispositivos incautados; correlación con polígonos de halado.</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Localidad(es)</label><input type="text" placeholder="Ej: Norte-Centro Histórico, Suroccidente…"></div>
-            <div class="fld"><label class="lbl">Barrio(s) / Polígono(s)</label><input type="text" placeholder="Ej: Centro, Barrio Abajo, Boston…"></div>
-            <div class="fld"><label class="lbl">Latitud</label><input type="text" placeholder="Ej: 10.9685"></div>
-            <div class="fld"><label class="lbl">Longitud</label><input type="text" placeholder="Ej: -74.7813"></div>
-            <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
-            <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
-            <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
-            <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Objetivo de la Acción</div>
+        <p style="font-size:.9em;color:var(--ink2);margin-bottom:8px">Dotar de capacidad probatoria frente a llaves maestras, clonación e inhibidores.</p>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">📍 Georreferenciación y Focalización Territorial</div>
+        <div class="info-box ib-stl" style="margin-bottom:12px"><strong>Foco territorial:</strong> Georreferenciación de dispositivos incautados; correlación con polígonos de halado.</div>
+        <div class="geo-grid">
+          <div class="fld">
+            <label class="lbl">Localidad(es)</label>
+            <select class="localidad-select" data-target="territorio-pts16">
+              <option value="">Seleccione localidad...</option>
+              <option value="Distrital">Distrital (toda la ciudad)</option>
+            </select>
           </div>
+          <div class="fld terr-container" id="terr-container-pts16">
+            <label class="lbl">Barrio(s) / Polígono(s)</label>
+            <select class="territorio-select" id="territorio-pts16">
+              <option value="">Primero seleccione una localidad</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label class="lbl">Latitud</label>
+            <input type="text" class="lat-input" id="lat-pts16" placeholder="Ej: 10.9685">
+          </div>
+          <div class="fld">
+            <label class="lbl">Longitud</label>
+            <input type="text" class="lng-input" id="lng-pts16" placeholder="Ej: -74.7813">
+          </div>
+          <div class="fld" style="grid-column:1/2;">
+            <button type="button" class="btn-geo" data-lat="lat-pts16" data-lng="lng-pts16">📍 Obtener ubicación</button>
+          </div>
+          <div class="fld"><label class="lbl">Cuadrante(s) MEBAR</label><input type="text" placeholder="Ej: CAI Norte, Cuadrante 4-2…"></div>
+          <div class="fld"><label class="lbl">Corredor(es) Asociado(s)</label><input type="text" placeholder="Ej: Cordialidad–Galapa…"></div>
+          <div class="fld"><label class="lbl">Zona de Influencia (Radio)</label><input type="text" placeholder="Ej: 500 m"></div>
+          <div class="fld"><label class="lbl">Referencia Cartográfica</label><input type="text" placeholder="Ej: Mapa Leaflet hoja 3, Anexo…"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
-          <div class="op-row" style="border-left-color:#0057A8">
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Acciones Operacionales</div>
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-16.1</span>
           <span class="op-desc">Habilitación de capacidad pericial y protocolos probatorios</span>
         </div>
-<div class="op-row" style="border-left-color:#0057A8">
+        <div class="op-row" style="border-left-color:#0057A8">
           <span class="op-code" style="color:#0057A8">OP-16.2</span>
           <span class="op-desc">Peritajes aportados a casos del portafolio y vigilancia tecnológica</span>
         </div>
-
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Peritajes admitidos ≥ 95 %</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Capacidad pericial disponible</div>
+        <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Protocolos adoptados</div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="SIJIN + CTI" readonly style="font-weight:600"></div>
+          <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="2026-S2 · Operación continua a 2029" readonly style="font-size:.82em"></div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Indicadores de Seguimiento</div>
-          <div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Peritajes admitidos ≥ 95 %</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Capacidad pericial disponible</div>
-<div class="ind-row"><span class="ind-dot" style="background:#0057A8"></span>Protocolos adoptados</div>
-
-        </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Responsable y Cronograma</div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Responsable (R)</label><input type="text" value="SIJIN + CTI" readonly style="font-weight:600"></div>
-            <div class="fld"><label class="lbl">Horizonte Temporal</label><input type="text" value="2026-S2 · Operación continua a 2029" readonly style="font-size:.82em"></div>
+      </div>
+      <div class="pts-section">
+        <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
+        <div class="fld">
+          <label class="lbl">Estado Actual</label>
+          <div class="status-row">
+            <div class="status-opt"><input type="radio" name="estado_pts16" id="e1_pts16"><label for="e1_pts16">⬜ No Iniciado</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts16" id="e2_pts16"><label for="e2_pts16">📐 En Diseño</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts16" id="e3_pts16"><label for="e3_pts16">▶️ En Ejecución</label></div>
+            <div class="status-opt"><input type="radio" name="estado_pts16" id="e4_pts16"><label for="e4_pts16">✅ Consolidado</label></div>
           </div>
         </div>
-
-        <div class="pts-section">
-          <div class="pts-section-hdr sh-stl">Control y Seguimiento</div>
-          <div class="fld">
-            <label class="lbl">Estado Actual</label>
-            <div class="status-row">
-              <div class="status-opt"><input type="radio" name="estado_pts16" id="e1_pts16"><label for="e1_pts16">⬜ No Iniciado</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts16" id="e2_pts16"><label for="e2_pts16">📐 En Diseño</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts16" id="e3_pts16"><label for="e3_pts16">▶️ En Ejecución</label></div>
-              <div class="status-opt"><input type="radio" name="estado_pts16" id="e4_pts16"><label for="e4_pts16">✅ Consolidado</label></div>
-            </div>
+        <div class="fld">
+          <label class="lbl">Semáforo</label>
+          <div class="sem-row">
+            <div class="sem-opt sem-verde"><input type="radio" name="sem_pts16" id="sv_pts16"><label for="sv_pts16" class="sv">🟢 Verde</label></div>
+            <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts16" id="sa_pts16"><label for="sa_pts16" class="sa">🟡 Amarillo</label></div>
+            <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts16" id="sr_pts16"><label for="sr_pts16" class="sr">🔴 Rojo</label></div>
           </div>
-          <div class="fld">
-            <label class="lbl">Semáforo</label>
-            <div class="sem-row">
-              <div class="sem-opt sem-verde"><input type="radio" name="sem_pts16" id="sv_pts16"><label for="sv_pts16" class="sv">🟢 Verde</label></div>
-              <div class="sem-opt sem-amarillo"><input type="radio" name="sem_pts16" id="sa_pts16"><label for="sa_pts16" class="sa">🟡 Amarillo</label></div>
-              <div class="sem-opt sem-rojo"><input type="radio" name="sem_pts16" id="sr_pts16"><label for="sr_pts16" class="sr">🔴 Rojo</label></div>
-            </div>
-          </div>
-          <div class="geo-grid">
-            <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
-            <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
-          </div>
-          <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
         </div>
-
+        <div class="geo-grid">
+          <div class="fld"><label class="lbl">Fecha de Última Actualización</label><input type="date"></div>
+          <div class="fld"><label class="lbl">Responsable del Registro</label><input type="text" placeholder="Nombre del funcionario"></div>
+        </div>
+        <div class="fld"><label class="lbl">Observaciones</label><textarea placeholder="Registre novedades, avances, alertas o bloqueos…"></textarea></div>
       </div>
     </div>
+  </div>
 
 </div>
 
@@ -447,5 +489,162 @@ body{font-family:var(--font-b);background:var(--bg);color:var(--ink);min-height:
 
 <button class="btn-print" onclick="window.print()">🖨️ Imprimir</button>
 
+<script>
+// ------------------------------------------------------------
+// DATOS TERRITORIALES OFICIALES DE BARRANQUILLA
+// ------------------------------------------------------------
+const territoriosPorLocalidad = {
+  "Suroccidente": [
+    "Alfonso López", "Bernardo Hoyos", "Buena Esperanza", "California",
+    "Caribe Verde", "Carlos Meisel", "Ciudad Modesto", "Ciudadela de la Salud",
+    "Ciudadela de Paz", "Colina Campestre", "Cordialidad", "Corregimiento de Juan Mina",
+    "Cuchilla de Villate", "El Bosque", "El Carmén", "El Eden",
+    "El Pueblo", "El Romance", "El Rubí", "El Silencio",
+    "El Valle", "Evaristo Sourdis", "Gerlein y Villate", "Kalamary",
+    "La Ceiba", "La Esmeralda", "La Florida", "La Gloria",
+    "La Libertad", "La Manga", "La Paz", "La Pradera",
+    "Las Colinas", "Las Estrellas", "Las Malvinas", "Las Terrazas",
+    "Lipaya", "Loma Fresca", "Los Andes", "Los Angeles I",
+    "Los Angeles II", "Los Angeles III", "Los Olivos I", "Los Olivos II",
+    "Los Pinos", "Los Rosales", "Lucero", "Me Quejo",
+    "Mercedes Sur", "Nueva Colombia", "Nueva Granada", "Olaya",
+    "Pinar del Rio", "Por Fin", "Pumarejo", "San Felipe",
+    "San Isidro", "San Pedro Alejandrino", "San Pedro Sector I", "Santo Domigo",
+    "Siete de Agosto", "Villa del Rosario", "Villa Flor", "Villas de la Cordialidad",
+    "Villas de San Pablo"
+  ],
+  "Metropolitana": [
+    "Buenos Aires", "Carrizal", "Cevillar", "Ciudadela 20 de Julio",
+    "El Santuario", "Kennedy", "La Sierra", "La Sierrita",
+    "Las Americas", "Las Cayenas", "Las Gardenias", "Las Granjas",
+    "Los Continentes", "Los Girasoles", "San Luis", "Santa María",
+    "Santo Domingo de Guzman", "Sevilla Real", "Siete de Abril", "Sinaí",
+    "Veinte de Julio", "Villa San Carlos", "Villa San Pedro", "Villa Sevilla",
+    "Villa Valery"
+  ],
+  "Suroriente": [
+    "Atlántico", "Bellarena", "Boyaca", "Chiquinquira",
+    "El Campito", "El Limón", "El Milagro", "El Parque Sector Barranquilla",
+    "José Antonio Galán", "La Arboraya", "La Chinita", "La Luz",
+    "La Magdalena", "La Unión", "La Victoria", "Las Dunas",
+    "Las Nieves", "Las Palmas", "Las Palmeras", "Los Laureles",
+    "Los Trupillos", "Moderno", "Montes", "Pasadena",
+    "Primero de Mayo El Ferry", "Rebolo", "San Jose", "San Nicolás",
+    "San Roque", "Santa Helena", "Simón Bolívar", "Tayrona",
+    "Universal I", "Universal II", "Villa Blanca", "Villa del Carmén"
+  ],
+  "Norte-Centro Histórico": [
+    "Abajo", "Alameda del Rio", "Altos del Prado", "America",
+    "Barlovento", "Bellavista", "Bethania", "Bostón",
+    "Campo Alegre", "Centro", "Ciudad Jardín", "Colombia",
+    "El Castillo", "El Golf", "El Porvenir", "El Prado",
+    "El Recreo", "El Rosario", "El Tabor", "Granadillo",
+    "La Campiña", "La Concepción", "La Cumbre", "La Loma",
+    "Las Delicias", "Las Mercedes", "Las Nubes (vereda)", "Los Alpes",
+    "Los Jobos", "Los Nogales", "Miramar", "Modelo",
+    "Montecristo", "Nuevo Horizonte", "Paraiso", "San Francisco",
+    "Santa Ana", "Villa Country", "Villanueva", "Zona Franca",
+    "Zona Industrial"
+  ],
+  "Riomar": [
+    "Altamira", "Altos de Riomar", "Altos del Limón", "Andalucia",
+    "Corregimiento Eduardo Santos La Playa", "El Limoncito", "El Poblado",
+    "La Floresta", "Las Flores", "Las Tres Ave Maria", "Riomar",
+    "San Salvador", "San Vicente", "Santa Mónica", "Siape",
+    "Solaire Norte", "Villa Campestre", "Villa Carolina", "Villa del Este",
+    "Villa Santos"
+  ]
+};
+
+// ------------------------------------------------------------
+// INICIALIZAR SELECTORES DE LOCALIDAD PARA CADA PTS
+// ------------------------------------------------------------
+document.querySelectorAll('.localidad-select').forEach(select => {
+  const localidades = Object.keys(territoriosPorLocalidad);
+  localidades.forEach(loc => {
+    const opt = document.createElement('option');
+    opt.value = loc;
+    opt.textContent = loc;
+    select.appendChild(opt);
+  });
+
+  select.addEventListener('change', function() {
+    const targetId = this.dataset.target;
+    const territorioSelect = document.getElementById(targetId);
+    const container = document.getElementById('terr-container-' + targetId.replace('territorio-', ''));
+    const localidad = this.value;
+
+    territorioSelect.innerHTML = '<option value="">Primero seleccione una localidad</option>';
+
+    if (localidad === 'Distrital') {
+      container.classList.remove('show');
+      territorioSelect.required = false;
+      return;
+    }
+
+    if (localidad && territoriosPorLocalidad[localidad]) {
+      container.classList.add('show');
+      territorioSelect.required = true;
+      const lista = territoriosPorLocalidad[localidad];
+      lista.forEach(nombre => {
+        const opt = document.createElement('option');
+        opt.value = nombre;
+        opt.textContent = nombre;
+        territorioSelect.appendChild(opt);
+      });
+    } else {
+      container.classList.remove('show');
+      territorioSelect.required = false;
+    }
+  });
+});
+
+// Inicializar: ocultar todos los contenedores de territorio al cargar
+document.querySelectorAll('.terr-container').forEach(el => el.classList.remove('show'));
+
+// ------------------------------------------------------------
+// BOTÓN DE GEOLOCALIZACIÓN
+// ------------------------------------------------------------
+document.querySelectorAll('.btn-geo').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const latId = this.dataset.lat;
+    const lngId = this.dataset.lng;
+    const latInput = document.getElementById(latId);
+    const lngInput = document.getElementById(lngId);
+
+    if (!navigator.geolocation) {
+      alert('Este navegador no soporta geolocalización. Por favor, ingrese las coordenadas manualmente.');
+      return;
+    }
+
+    this.textContent = '⌛ Obteniendo...';
+    this.disabled = true;
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        latInput.value = position.coords.latitude.toFixed(6);
+        lngInput.value = position.coords.longitude.toFixed(6);
+        this.textContent = '📍 Obtener ubicación';
+        this.disabled = false;
+        latInput.closest('.fld').classList.remove('err');
+        lngInput.closest('.fld').classList.remove('err');
+      },
+      error => {
+        let msg = 'No se pudo obtener la ubicación. ';
+        switch(error.code) {
+          case error.PERMISSION_DENIED: msg += 'Permiso denegado por el usuario.'; break;
+          case error.POSITION_UNAVAILABLE: msg += 'La información de ubicación no está disponible.'; break;
+          case error.TIMEOUT: msg += 'El tiempo de solicitud de ubicación expiró.'; break;
+          default: msg += 'Error desconocido.';
+        }
+        alert(msg + ' Por favor, ingrese las coordenadas manualmente.');
+        this.textContent = '📍 Obtener ubicación';
+        this.disabled = false;
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+    );
+  });
+});
+</script>
 </body>
 </html>
